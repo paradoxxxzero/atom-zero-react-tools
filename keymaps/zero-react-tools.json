@@ -1,0 +1,6 @@
+{
+  ".source.js.jsx": {
+    "f12": "zero-react-tools:toggle-sass-jsx",
+    "shift-f12": "zero-react-tools:add-sass-import"
+  }
+}
