@@ -1,12 +1,10 @@
 {
   "name": "zero-react-tools",
   "main": "./lib/zero-react-tools",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Various react tools used for our stack.",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
-    "atom-workspace": "zero-react-tools:toggle-sass-jsx",
     "atom-workspace": "zero-react-tools:add-sass-import"
   },
   "repository": "https://github.com/paradoxxxzero/atom-zero-react-tools",
@@ -14,6 +12,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
