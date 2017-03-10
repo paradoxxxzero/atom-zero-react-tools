@@ -1,7 +1,7 @@
 {
   "name": "zero-react-tools",
   "main": "./lib/zero-react-tools",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Various react tools used for our stack.",
   "keywords": [],
   "activationCommands": {
