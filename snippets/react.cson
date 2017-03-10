@@ -1,0 +1,103 @@
+'.source.js.jsx':
+  'React bem className':
+    'prefix': 'cn'
+    'body': 'className={ b(\'${1:block}\') }$2'
+  'React functional component':
+    'prefix': 'funcomp'
+    'body': """
+      import React from 'react'
+      import { block } from 'utils'
+      import './${1:Name}.sass'
+
+      const b = block('${1:Name}')
+      export default function ${1:Name}() {
+        return (
+          <div className={ b }>
+            $2
+          </div>
+        )
+      }
+    """
+  'React connected functional component':
+    'prefix': 'connfuncomp'
+    'body': """
+      import React from 'react'
+      import { connect } from 'react-redux'
+      import { block } from 'utils'
+      import './${1:Name}.sass'
+
+      const b = block('${1:Name}')
+      function ${1:Name}({ ${2:prop}, ${3:onFunction} }) {
+        return (
+          <div className={ b }>
+          </div>
+        )
+      }
+
+      export default connect(state => ({
+        ${2:prop}: state.${2:prop}
+      }), dispatch => ({
+        ${3:onFunction}: () => dispatch($4)
+      }))(${1:Name})
+
+    """
+  'React class component':
+    'prefix': 'clscomp'
+    'body': """
+      import React from 'react'
+      import { block } from 'utils'
+      import './${1:Name}.sass'
+
+      const b = block('${1:Name}')
+      export default class ${1:Name} extends React.Component {
+        constructor(props) {
+          super(props)
+          this.state = {
+            ${2:prop}: null
+          }
+        }
+        render() {
+          const {} = this.props
+          const { ${2:prop} } = this.state
+
+          return (
+            <div className={ b }>
+              $3
+            </div>
+          )
+        }
+      }
+    """
+  'React connected class component':
+    'prefix': 'connclscomp'
+    'body': """
+      import React from 'react'
+      import { connect } from 'react-redux'
+      import { block } from 'utils'
+      import './${1:Name}.sass'
+
+      const b = block('${1:Name}')
+      class ${1:Name} extends React.Component {
+        constructor(props) {
+          super(props)
+          this.state = {
+            ${2:prop}: null
+          }
+        }
+        render() {
+          const { ${3:connectedPprop}, ${4:onFunction} } = this.props
+          const { ${2:prop} } = this.state
+
+          return (
+            <div className={ b }>
+            </div>
+          )
+        }
+      }
+
+      export default connect(state => ({
+        ${3:connectedPprop}: state.${3:connectedPprop}
+      }), dispatch => ({
+        ${4:onFunction}: () => dispatch($5)
+      }))(${1:Name})
+    """
