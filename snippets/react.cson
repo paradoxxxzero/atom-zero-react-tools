@@ -85,7 +85,7 @@
           }
         }
         render() {
-          const { ${3:connectedPprop}, ${4:onFunction} } = this.props
+          const { ${3:connectedProp}, ${4:onFunction} } = this.props
           const { ${2:prop} } = this.state
 
           return (
@@ -96,7 +96,7 @@
       }
 
       export default connect(state => ({
-        ${3:connectedPprop}: state.${3:connectedPprop}
+        ${3:connectedProp}: state.${3:connectedProp}
       }), dispatch => ({
         ${4:onFunction}: () => dispatch($5)
       }))(${1:Name})
