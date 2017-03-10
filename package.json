@@ -9,7 +9,7 @@
     "atom-workspace": "zero-react-tools:toggle-sass-jsx",
     "atom-workspace": "zero-react-tools:add-sass-import"
   },
-  "repository": "https://github.com/paradoxxxzero/zero-react-tools",
+  "repository": "https://github.com/paradoxxxzero/atom-zero-react-tools",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
