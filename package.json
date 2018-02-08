@@ -10,7 +10,7 @@
       "zero-react-tools:add-sass-import"
     ]
   },
-  "repository": "https://github.com/paradoxxxzero/atom-zero-react-tools",
+  "repository": "git@github.com:paradoxxxzero/atom-zero-react-tools.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
