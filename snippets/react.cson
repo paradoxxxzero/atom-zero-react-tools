@@ -1,103 +1,84 @@
-'.source.js.jsx':
-  'React bem className':
-    'prefix': 'cn'
-    'body': 'className={ b(\'${1:block}\') }$2'
-  'React functional component':
-    'prefix': 'funcomp'
-    'body': """
-      import React from 'react'
-      import { block } from 'utils'
-      import './${1:Name}.sass'
+'.source.python':
+  'wdb':
+    prefix: 'wdb'
+    body: 'import wdb;wdb.set_trace()'
 
-      const b = block('${1:Name}')
-      export default function ${1:Name}() {
+'.source.jsx':
+  'Bemboo root block':
+    prefix: 'cn'
+    body: 'className={b}'
+  'Bemboo element':
+    prefix: 'cne'
+    body: 'className={b.e(\'$1\')}'
+  'Bemboo modifier':
+    prefix: 'cnm'
+    body: 'className={b.m({ $1 })}'
+  'Bemboo element modifier':
+    prefix: 'cnem'
+    body: 'className={b.e(\'$1\').m({ $2 })}'
+  'Connected react component':
+    prefix: 'crc'
+    body: '''
+    import block from 'bemboo'
+    import React from 'react'
+    import { connect } from 'react-redux'
+
+    @connect(
+      state => ({
+        ${2:endpoint}Api: state.api.${2:endpoint}
+      }),
+      dispatch => ({
+        sync: () => dispatch(api.actions.${2:endpoint}.get())
+      })
+    )
+    @block
+    export default class ${1:Name} extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          ${3:value}: ''
+        }
+        this.handleChange = this.handleChange.bind(this)
+      }
+
+      componentDidMount() {
+        const { sync } = this.props
+        sync()
+      }
+
+      handleChange({ target: { value } }) {
+      }
+
+      render(b) {
+        const { ${2:endpoint}Api: { objects: ${2:endpoint}, loading } } = this.props
+        const { ${3:value} } = this.state
         return (
-          <div className={ b }>
-            $2
-          </div>
+          <${4:section} className={b}>
+            <${5:article}>
+              <h1>${6:Titre}</h1>
+            </${5:article}>
+          </${4:section}>
         )
       }
-    """
-  'React connected functional component':
-    'prefix': 'connfuncomp'
-    'body': """
-      import React from 'react'
-      import { connect } from 'react-redux'
-      import { block } from 'utils'
-      import './${1:Name}.sass'
+    }
+'''
+  'Functional react component':
+    prefix: 'frc'
+    body: '''
+    import block from 'bemboo'
+    import React from 'react'
 
-      const b = block('${1:Name}')
-      function ${1:Name}({ ${2:prop}, ${3:onFunction} }) {
-        return (
-          <div className={ b }>
-          </div>
-        )
-      }
-
-      export default connect(state => ({
-        ${2:prop}: state.${2:prop}
-      }), dispatch => ({
-        ${3:onFunction}: () => dispatch($4)
-      }))(${1:Name})
-
-    """
-  'React class component':
-    'prefix': 'clscomp'
-    'body': """
-      import React from 'react'
-      import { block } from 'utils'
-      import './${1:Name}.sass'
-
-      const b = block('${1:Name}')
-      export default class ${1:Name} extends React.Component {
-        constructor(props) {
-          super(props)
-          this.state = {
-            ${2:prop}: null
-          }
-        }
-        render() {
-          const {} = this.props
-          const { ${2:prop} } = this.state
-
-          return (
-            <div className={ b }>
-              $3
-            </div>
-          )
-        }
-      }
-    """
-  'React connected class component':
-    'prefix': 'connclscomp'
-    'body': """
-      import React from 'react'
-      import { connect } from 'react-redux'
-      import { block } from 'utils'
-      import './${1:Name}.sass'
-
-      const b = block('${1:Name}')
-      class ${1:Name} extends React.Component {
-        constructor(props) {
-          super(props)
-          this.state = {
-            ${2:prop}: null
-          }
-        }
-        render() {
-          const { ${3:connectedProp}, ${4:onFunction} } = this.props
-          const { ${2:prop} } = this.state
-
-          return (
-            <div className={ b }>
-            </div>
-          )
-        }
-      }
-
-      export default connect(state => ({
-        ${3:connectedProp}: state.${3:connectedProp}
-      }), dispatch => ({
-        ${4:onFunction}: () => dispatch($5)
-      }))(${1:Name})
-    """
+    export default block('${1:Name}', (b, { ${2:prop} }) => (
+      <article className={b}>
+        $3
+      </article>
+    ))
+'''
+  'React constructor':
+    prefix: 'rcst'
+    body: '''
+    constructor(props) {
+      super(props)
+      this.handleChange = this.handleChange.bind(this)
+    }
+'''
