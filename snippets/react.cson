@@ -3,7 +3,7 @@
     prefix: 'wdb'
     body: 'import wdb;wdb.set_trace()'
 
-'.source.jsx':
+'.source.js, .source.jsx, .source.ts, .source.js-semantic':
   'Bemboo root block':
     prefix: 'cn'
     body: 'className={b}'
