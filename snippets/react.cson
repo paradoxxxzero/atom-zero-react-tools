@@ -79,17 +79,20 @@
     body: '''
     constructor(props) {
       super(props)
-      this.handleChange = this.handleChange.bind(this)
+      this.state = {
+        ${1:value}: ''
+      }
+      this.handle${2:Change} = this.handle${2:Change}.bind(this)
     }
 '''
   'React props':
     prefix: 'rprops'
-    body: 'const { ${1:value} } = this.props'
+    body: 'const { ${1:value} } = this.props$2'
 
   'React state':
     prefix: 'rstate'
-    body: 'const { ${1:value} } = this.state'
+    body: 'const { ${1:value} } = this.state$2'
 
-  'React onClick':
-    prefix: 'rclick'
-    body: 'onClick={this.handleClick}'
+  'React onSomething':
+    prefix: 'ron'
+    body: 'on${1:Click}={this.handle${1:Click}}$2'
