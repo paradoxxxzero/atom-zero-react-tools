@@ -12,12 +12,12 @@
     body: 'className={b.e(\'$1\')}'
   'Bemboo modifier':
     prefix: 'cnm'
-    body: 'className={b.m({ $1 })}'
+    body: 'className={b.m({ ${1:active} })}'
   'Bemboo element modifier':
     prefix: 'cnem'
-    body: 'className={b.e(\'$1\').m({ $2 })}'
+    body: 'className={b.e(\'$1\').m({ ${2:active} })}'
   'Connected react component':
-    prefix: 'crc'
+    prefix: 'rcrc'
     body: '''
     import block from 'bemboo'
     import React from 'react'
@@ -63,7 +63,7 @@
     }
 '''
   'Functional react component':
-    prefix: 'frc'
+    prefix: 'rfrc'
     body: '''
     import block from 'bemboo'
     import React from 'react'
@@ -82,3 +82,14 @@
       this.handleChange = this.handleChange.bind(this)
     }
 '''
+  'React props':
+    prefix: 'rprops'
+    body: 'const { ${1:value} } = this.props'
+
+  'React state':
+    prefix: 'rstate'
+    body: 'const { ${1:value} } = this.state'
+
+  'React onClick':
+    prefix: 'rclick'
+    body: 'onClick={this.handleClick}'
